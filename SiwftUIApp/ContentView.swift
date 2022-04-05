@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         List(0..<10) {_ in
+            Image("apple")
+                .resizable()
+            
             Text("Hello, world!")
                 .foregroundColor(.blue)
                 .fontWeight(.bold)
