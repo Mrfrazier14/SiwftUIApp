@@ -22,14 +22,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(items) { data in
-                Image(data.imageName)
-                    .resizable().frame(width: 100, height: 100, alignment: .center)
-                    .aspectRatio(contentMode: .fit)
+                NavigationLink(destination: Text("Fruit Details")) {
+                    Image(data.imageName)
+                        .resizable().frame(width: 100, height: 100, alignment: .center)
+                        .aspectRatio(contentMode: .fit)
+                        
                     
-                
-                Text(data.title)
-                    .foregroundColor(.primary)
-                    .fontWeight(.bold)
+                    Text(data.title)
+                        .foregroundColor(.primary)
+                        .fontWeight(.bold)
+                }
             }
             .navigationBarTitle("Photos")
             
