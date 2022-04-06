@@ -20,17 +20,19 @@ struct ContentView: View {
     var items = [Data]()
     
     var body: some View {
-        List(items) { data in
-            Image(data.imageName)
-                .resizable().frame(width: 100, height: 100, alignment: .center)
-                .aspectRatio(contentMode: .fit)
+        NavigationView {
+            List(items) { data in
+                Image(data.imageName)
+                    .resizable().frame(width: 100, height: 100, alignment: .center)
+                    .aspectRatio(contentMode: .fit)
+                    
                 
-            
-            Text(data.title)
-                .foregroundColor(.blue)
-                .fontWeight(.bold)
+                Text(data.title)
+                    .foregroundColor(.blue)
+                    .fontWeight(.bold)
+            }
+                .foregroundColor(.red)
         }
-            .foregroundColor(.red)
     }
 }
 
