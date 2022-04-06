@@ -35,13 +35,10 @@ struct ContentView: View {
                     }
                 }
             }
-            //.navigationBarTitle("Photos")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                 ToolbarItem(placement: .principal, content: {
-                 Text("Fruits")
-              })})
+            .navigationBarTitle("Photos")
+            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -52,6 +49,7 @@ struct DataView: View {
         VStack {
             Image(data.imageName)
             Text(data.imageDescription)
+                .font(.title)
                 .padding(5)
             Spacer()
             HStack {
@@ -69,10 +67,37 @@ struct DataView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        Group{
+            ContentView(items: [
+                Data(title: "Apple",
+                     imageName: "apple",
+                     imageDescription: "This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple.",
+                     imageTakenDate: "1/1/2022"),
+                Data(title: "Banana",
+                     imageName: "banana",
+                     imageDescription: "This is a banana.",
+                     imageTakenDate: "1/1/2022"),
+                Data(title: "Blackberry",
+                     imageName: "blackberry",
+                     imageDescription: "This is a blackberry.",
+                     imageTakenDate: "1/1/2022"),
+                Data(title: "Blueberry",
+                     imageName: "blueberry",
+                     imageDescription: "This is a blueberry.",
+                     imageTakenDate: "1/1/2022"),
+                Data(title: "Cherry",
+                     imageName: "cherry",
+                     imageDescription: "This is a cherry.",
+                     imageTakenDate: "1/1/2022")
+            ])
+            .environment(\.colorScheme, .dark)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+        }
+
         ContentView(items: [
             Data(title: "Apple",
                  imageName: "apple",
-                 imageDescription: "This is an apple.",
+                 imageDescription: "This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple. This is an apple.",
                  imageTakenDate: "1/1/2022"),
             Data(title: "Banana",
                  imageName: "banana",
@@ -91,6 +116,8 @@ struct ContentView_Previews: PreviewProvider {
                  imageDescription: "This is a cherry.",
                  imageTakenDate: "1/1/2022")
         ])
-            .previewDevice(PreviewDevice(rawValue: "iPhone 13"))
+        .environment(\.colorScheme, .light)
+        .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+        
     }
 }
