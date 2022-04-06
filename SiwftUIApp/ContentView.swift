@@ -28,10 +28,11 @@ struct ContentView: View {
                     
                 
                 Text(data.title)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.primary)
                     .fontWeight(.bold)
             }
-                .foregroundColor(.red)
+            .navigationBarTitle("Photos")
+            
         }
     }
 }
