@@ -23,14 +23,17 @@ struct ContentView: View {
         NavigationView {
             List(items) { data in
                 NavigationLink(destination: Text("Fruit Details")) {
-                    Image(data.imageName)
-                        .resizable().frame(width: 100, height: 100, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
+                    HStack {
+                        Image(data.imageName)
+                            .resizable().frame(width: 100, height: 100, alignment: .center)
+                            .aspectRatio(contentMode: .fit)
+                            
                         
-                    
-                    Text(data.title)
-                        .foregroundColor(.primary)
-                        .fontWeight(.bold)
+                        Text(data.title)
+                            .foregroundColor(.primary)
+                            .fontWeight(.bold)
+
+                    }
                 }
             }
             .navigationBarTitle("Photos")
