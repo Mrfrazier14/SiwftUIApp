@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(items) { data in
-                NavigationLink(destination: Text("Fruit Details")) {
+                NavigationLink(destination: DataView(data: data)) {
                     HStack {
                         Image(data.imageName)
                             .resizable().frame(width: 100, height: 100, alignment: .center)
@@ -40,6 +40,19 @@ struct ContentView: View {
             
         }
     }
+}
+
+struct DataView: View {
+    var data: Data
+    
+    var body: some View {
+        VStack {
+            Text(data.title)
+        }
+    }
+
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {
