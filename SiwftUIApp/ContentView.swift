@@ -27,7 +27,6 @@ struct ContentView: View {
                         Image(data.imageName)
                             .resizable().frame(width: 100, height: 100, alignment: .center)
                             .aspectRatio(contentMode: .fit)
-                            
                         
                         Text(data.title)
                             .foregroundColor(.primary)
@@ -36,8 +35,12 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Photos")
-            
+            //.navigationBarTitle("Photos")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(content: {
+                 ToolbarItem(placement: .principal, content: {
+                 Text("Fruits")
+              })})
         }
     }
 }
@@ -47,8 +50,17 @@ struct DataView: View {
     
     var body: some View {
         VStack {
-            Text(data.title)
+            Image(data.imageName)
+            Text(data.imageDescription)
+                .padding(5)
+            Spacer()
+            HStack {
+                Text("Date Taken Photo")
+            Text(data.imageTakenDate)
+                .padding(5)
+            }
         }
+        .navigationBarTitle(data.title)
     }
 
 
